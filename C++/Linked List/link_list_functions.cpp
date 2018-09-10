@@ -114,6 +114,5 @@ int main()
      pushBack(20);
     cout<<"After pushBack(): \n";
     print_elements();
-    cout<<"calling find(): "<<(find(90)==1? "found\n":"not found\n")<<endl;
     return 0;
 }
