@@ -97,10 +97,36 @@ bool find(int value)
     }
     return false;
 }
+/*
+* remove duplicate values
+*/
+
+void removeDuplicateValue()
+{
+    unordered_set<int> seen;
+    Node *curr = head;
+    Node *prev = NULL;
+    while (curr != NULL)
+    {
+        // If current value is seen before
+        if (seen.find(curr->data) != seen.end())
+        {
+           prev->next = curr->next;
+           delete (curr);
+        }
+        else
+        {
+           seen.insert(curr->data);
+           prev = curr;
+        }
+        curr = prev->next;
+    }
+}
 
 int main()
 {
     insert_elements(2);
+    insert_elements(1);
     insert_elements(4);
     insert_elements(1);
     print_elements();
@@ -114,5 +140,9 @@ int main()
      pushBack(20);
     cout<<"After pushBack(): \n";
     print_elements();
+    removeDuplicateValue();
+    cout<<"After removing duplicate value(): \n";
+    print_elements();
+
     return 0;
 }
