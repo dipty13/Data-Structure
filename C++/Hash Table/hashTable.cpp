@@ -19,6 +19,8 @@ public:
     void insertItem(string key);
     int numberOfItemsInIndex(int index);
     void printTable();
+    void search_element(string s);
+
 };
 
 
@@ -109,6 +111,21 @@ void HashTable::printTable()
         }
     }
 }
+void HashTable::search_element(string s)
+{
+     int index = hashFunction(s);
+     linkedList *tmp =  hashTable[index];
+     while(tmp != NULL)
+     {
+         if(tmp->data == s)
+         {
+             cout<<"Found\n";
+             return;
+         }
+         tmp = tmp->next;
+     }
+     cout<<"Not Found\n";
+}
 int main()
 {
     HashTable ob;
@@ -116,5 +133,6 @@ int main()
     ob.insertItem("aapo");
     ob.insertItem("paoa");
     ob.printTable();
+    ob.search_element("aiiapo");
     return 0;
 }
