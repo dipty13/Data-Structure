@@ -11,7 +11,7 @@ class HashTable:
         while i <= HASH_MAX:
             HashTable.hashTable[i] = linkedList()
             HashTable.hashTable[i].linkedList.data = "empty"
-            HashTable.hashTable[i].linkedList.next =  None
+            HashTable.hashTable[i].linkedList.next = None
             i += 1
 
     def hashFunction(key):
@@ -21,7 +21,7 @@ class HashTable:
         return sum % HashTable.HASH_MAX
 
     def insertItem(key):
-        index = HashTable.hashFunction(key) -1
+        index = HashTable.hashFunction(key) - 1
         print(index)
         if HashTable.hashTable[index].linkedList.data == "empty":
             HashTable.hashTable[index].linkedList.data = key
@@ -30,11 +30,13 @@ class HashTable:
             x = HashTable.linkedList()
             x.linkedList.data = key
             x.linkedList.next = None
-            while tmp.linkedList.next != None:
-                tmp = tmp.linkedList.next
+            while tmp.next != None:
+                tmp = tmp.next
 
-            tmp.linkedList.next = x
+            tmp.next = x
+
 
 
 if __name__ == '__main__':
-    HashTable.insertItem("John")
+    ob = HashTable()
+    ob.insertItem("John")

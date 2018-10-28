@@ -43,10 +43,10 @@ void print_elements()
 */
 void pushFront(int n)
 {
-    Node *currentNode = new Node;
-    currentNode->data = n;
-    currentNode->next = head;
-    head = currentNode;
+    newNode = new Node;
+    newNode->data = n;
+    newNode->next = head;
+    head = newNode;
 }
 /**
 * adds element to the end of the list
